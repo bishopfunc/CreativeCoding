@@ -8,3 +8,8 @@
 # Deliverables
 
 # References
+- https://github.com/datramt/p5js-gif-recorder
+
+# GIF 
+1. run `python -m http.server 8000`
+2. open `index.html` in localhost:8000
