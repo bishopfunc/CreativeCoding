@@ -1,0 +1,78 @@
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
+  <script src="https://unpkg.com/p5.createloop@0.2.8/dist/p5.createloop.js"></script>
+
+</head>
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow: hidden;
+  background: #292a33;
+}
+</style>
+<body>
+</body>
+<script>
+/**
+ * noise() で遊ぼう！ 前編
+ * いかにも 2次元ノイズな図
+ * 
+ * @author @deconbatch
+ * @version 0.1
+ * @license CC0 1.0 https://creativecommons.org/publicdomain/zero/1.0/deed.ja
+ * 2020.10.31
+ */
+
+ function setup() {
+	  createCanvas(500, 500);
+	  background(0);
+    createLoop({duration:20, gif:true})
+  }
+
+  let dotX = 0
+  let dotY = 50
+  let noiseX = 0
+  let noiseY = 200
+  let randVal = 0
+  let range = 100
+
+  let noiseVar = 1
+  let noiseScale = 0.02
+
+  function draw() {
+    stroke(255);
+    // random
+    randVal = random() * range - range / 2 // yの幅を100にする, 幅の半分分ずらす
+    point(dotX, dotY + randVal)
+    
+    // noise 0.02 
+    noiseScale = 0.02
+    let noiseVal = noise(noiseVar * noiseScale) * range - range / 2
+    point(dotX, dotY + 100 + noiseVal)
+
+    // noise 0.05
+    noiseScale = 0.05
+    let noiseVal2 = noise(noiseVar * noiseScale) * range - range / 2
+    point(dotX, dotY + 200 + noiseVal2)
+
+    // noise 0.2
+    noiseScale = 0.2
+    let noiseVal3 = noise(noiseVar * noiseScale) * range - range / 2
+    point(dotX, dotY + 300 + noiseVal3)
+    
+    // noise 0.5
+    noiseScale = 0.5
+    let noiseVal4 = noise(noiseVar * noiseScale) * range - range / 2
+    point(dotX, dotY + 400 + noiseVal4)
+    
+    dotX += 1
+    noiseVar += 1
+    if (dotX > width) dotX = 0
+
+  }
+</script>
+</html>
