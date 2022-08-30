@@ -1,0 +1,27 @@
+function setup() {
+  createCanvas(500, 500);
+  background(255);
+  stroke(0, 100);
+  const color_pat = ['#1C6DD0', '#000000'];
+  strokeWeight(0.5);
+
+  const noise_scale = 10;
+  const loop_num = 3000;
+  const point_num = 1000;
+  const scale_x = width * 1.5;
+  const scale_y = height * 1.5;
+
+  for (let i = 0; i < loop_num; i++) {
+    let x = random(-1, 1)
+    let y = random(-1, 1)
+    stroke(random(color_pat) + '60'); // 60は透明度
+    for (let j = 0; j < point_num; j++) {
+        x = (noise(x * noise_scale, y * noise_scale) - 1/8)     
+        y = (noise(x * noise_scale, y * noise_scale) - 1/8)      
+        point(scale_x * x, scale_y * y)
+    }
+  }
+}
+
+function draw() {
+}
