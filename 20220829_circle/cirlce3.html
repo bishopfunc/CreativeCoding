@@ -1,0 +1,35 @@
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
+</head>
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow: hidden;
+  background: ##292a33;
+}
+</style>
+<body>
+</body>
+<script>
+let palette =["#e9dbce", "#f8f7c1", "#f46902", "#da506a", "#fae402", "#92accc"];
+
+function setup() {
+  createCanvas(500, 500);
+}
+function draw() {
+  for (let i = 0; i < 500; i++) {
+    ellipse(
+      random(width),
+      random(height),
+      random(1) < 0.9 ? random(4, 6) : random(15, 20)
+    );
+    fill(random(palette));
+  }
+  noLoop();
+}
+</script>
+</html>
