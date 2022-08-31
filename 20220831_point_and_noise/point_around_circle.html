@@ -1,0 +1,47 @@
+
+
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow: hidden;
+  background: #292a33;
+}
+</style>
+<script>
+  let angle = 0;
+
+  function setup() {
+    createCanvas(500, 500);
+    background(140);
+    strokeWeight(8)
+    for(let i = 0; i <= 5; i++) {
+      for(let j = 0; j <= 5; j++) {
+          point(100 * i, 100 * j)
+      }
+    }
+  }
+
+  function draw(){
+    let x = 100
+    let y = 400
+    drawCircle(x, y);
+    stroke('red');
+    point(x, y)
+  }
+
+  function drawCircle(a,b) {
+    stroke(0);
+    strokeWeight(3)
+    let x = map(cos(angle), -1, 1, a, b);
+    let y = map(sin(angle), -1, 1, a, b);
+    point(x, y);
+    angle += 1;
+  }
+</script>
+</head>
